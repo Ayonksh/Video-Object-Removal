@@ -39,7 +39,7 @@ def remove(args):
     args.config = "./removing/config/config_davis.json"
     cfg = load_config(args)
     siammask = Custom(anchors = cfg["anchors"])
-    siammask = load_pretrain(siammask, "./pretrain_models/SiamMask_DAVIS.pth")
+    siammask = load_pretrain(siammask, "./pretrained_models/SiamMask_DAVIS.pth")
     siammask.eval().to(device)
 
     # Parse Image file
@@ -56,6 +56,7 @@ def remove(args):
         exit()
 
     file_name, ext = os.path.splitext(os.path.basename(args.src))
+    args.file_name = file_name
     if not os.path.exists(os.path.join("./results", "{}_mask".format(file_name))):
         os.makedirs(os.path.join("./results", "{}_mask".format(file_name)))
     if not os.path.exists(os.path.join("./results", "{}_frame".format(file_name))):
@@ -91,6 +92,6 @@ def remove(args):
     print("SiamMask Time: {:02.1f}s Speed: {:3.1f}fps (with visulization!)".format(toc, fps))
     cv2.destroyAllWindows()
 
-    src = args.src
-    args = {}
-    args.src = src
+    args.arch = None
+    args.config = None
+    args.mask_root = os.path.join("./results", "{}_mask".format(file_name))
