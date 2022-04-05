@@ -5,7 +5,7 @@
 # --------------------------------------------------------
 import numpy as np
 import math
-from removing.utils.bbox_helper import center2corner, corner2center
+from masking.utils.bbox_helper import center2corner, corner2center
 
 
 class Anchors:

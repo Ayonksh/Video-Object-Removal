@@ -7,7 +7,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.autograd import Variable
-from removing.utils.anchors import Anchors
+from masking.utils.anchors import Anchors
 
 
 class SiamMask(nn.Module):

@@ -8,7 +8,7 @@
 
 ```shell
 cd video-object-removal
-cd removing
+cd masking
 bash make.sh
 cd inpainting
 bash install.sh

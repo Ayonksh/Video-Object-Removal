@@ -1,7 +1,7 @@
 import os
 import glob
-from removing.models.custom import Custom
-from removing.tools.test import *
+from masking.models.custom import Custom
+from masking.tools.test import *
 
 def get_frames(video_name):
     if not video_name:
@@ -30,13 +30,13 @@ def get_frames(video_name):
             frame = cv2.imread(img)
             yield frame
 
-def remove(args):
+def mask(args):
     # Setup device
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     torch.backends.cudnn.benchmark = True
 
     # Setup Model
-    args.config = "./removing/config/config_davis.json"
+    args.config = "./masking/config/config_davis.json"
     cfg = load_config(args)
     siammask = Custom(anchors = cfg["anchors"])
     siammask = load_pretrain(siammask, "./pretrained_models/SiamMask_DAVIS.pth")

@@ -8,7 +8,7 @@ import torch
 import torch.nn as nn
 import torch.utils.model_zoo as model_zoo
 from torch.autograd import Variable
-from removing.models.features import Features
+from masking.models.features import Features
 
 
 __all__ = ['ResNet', 'resnet18', 'resnet34', 'resnet50', 'resnet101',

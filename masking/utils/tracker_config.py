@@ -5,7 +5,7 @@
 # --------------------------------------------------------
 from __future__ import division
 
-from removing.utils.anchors import Anchors
+from masking.utils.anchors import Anchors
 
 
 class TrackerConfig(object):

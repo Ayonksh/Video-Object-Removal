@@ -6,12 +6,12 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from removing.models.features import Features
-from removing.models.mask import Mask
-from removing.models.rpn import RPN, DepthCorr
-from removing.models.siammask import SiamMask
-from removing.models.resnet import resnet50
-from removing.utils.load_helper import load_pretrain
+from masking.models.features import Features
+from masking.models.mask import Mask
+from masking.models.rpn import RPN, DepthCorr
+from masking.models.siammask import SiamMask
+from masking.models.resnet import resnet50
+from masking.utils.load_helper import load_pretrain
 
 
 class ResDownS(nn.Module):

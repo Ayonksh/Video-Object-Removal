@@ -16,14 +16,14 @@ import torch
 from torch.autograd import Variable
 import torch.nn.functional as F
 
-from removing.utils.anchors import Anchors
-from removing.utils.tracker_config import TrackerConfig
-from removing.utils.log_helper import init_log, add_file_handler
-from removing.utils.load_helper import load_pretrain
-from removing.utils.bbox_helper import get_axis_aligned_bbox, cxy_wh_2_rect
-from removing.utils.benchmark_helper import load_dataset, dataset_zoo
-from removing.utils.config_helper import load_config
-from removing.utils.pyvotkit.region import vot_overlap, vot_float2str
+from masking.utils.anchors import Anchors
+from masking.utils.bbox_helper import get_axis_aligned_bbox, cxy_wh_2_rect
+from masking.utils.benchmark_helper import load_dataset, dataset_zoo
+from masking.utils.config_helper import load_config
+from masking.utils.load_helper import load_pretrain
+from masking.utils.log_helper import init_log, add_file_handler
+from masking.utils.tracker_config import TrackerConfig
+from masking.utils.pyvotkit.region import vot_overlap, vot_float2str
 
 thrs = np.arange(0.3, 0.5, 0.05)
 
@@ -554,7 +554,7 @@ def main():
 
     # setup model
     if args.arch == 'Custom':
-        from removing.models.custom import Custom
+        from masking.models.custom import Custom
         model = Custom(anchors=cfg['anchors'])
     else:
         parser.error('invalid architecture: {}'.format(args.arch))
